@@ -2,19 +2,30 @@ import * as nt from './types';
 import * as p from './pos';
 import * as r from './role';
 
-class DB<A, B, SubA, SubB, C> {
+export class DB<A, B, SubA, SubB, C> {
   make: (a: A, b: B) => C
   mA: (_: SubA) => A | undefined
   mB: (_: SubB) => B | undefined
+  all: Array<C>
   space: Map<A, Map<B, C>>
 
   constructor(make: (a: A, b: B) => C,
               mA: (_: SubA) => A | undefined,
-              mB: (_: SubB) => B | undefined) {
+              mB: (_: SubB) => B | undefined,
+              allA: Array<A>,
+              allB: Array<B>) {
     this.space = new Map()
     this.make = make
     this.mA = mA
     this.mB = mB
+
+    this.all = []
+
+    for (let a of allA) {
+      for (let b of allB) {
+        this.all.push(this.pget(a, b))
+      }
+    }
   }
 
   pget(a: A, b: B): C {
@@ -55,8 +66,12 @@ class DB<A, B, SubA, SubB, C> {
 export const poss = new DB<nt.Direction, nt.Direction, number, number, nt.Pos>(
   ((f, r) => [f, r]),
   p.mDirection,
-  p.mDirection)
+  p.mDirection,
+  nt.directions,
+  nt.directions)
 export const pieces = new DB<nt.Color, nt.Role, string, string, nt.Piece>(
   (color, role) => ({ color, role }),
   r.mColor,
-  r.mRole)
+  r.mRole,
+  nt.colors,
+  nt.roles)

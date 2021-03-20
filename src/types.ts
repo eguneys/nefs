@@ -30,8 +30,9 @@ export const rdirections: DAlong = [8,7,6,5,4,3,2,1]
 
 export const files = ['a','b','c','d','e','f','g','h'];
 export const ranks = ['1','2','3','4','5','6','7','8'];
-export let roles: Role[] = ['r','b','n','q','k','p'];
-export let promotables: Role[] = ['r', 'b', 'n', 'q'];
+export const colors: Color[] = ['w', 'b']
+export const roles: Role[] = ['r','b','n','q','k','p'];
+export const promotables: Role[] = ['r', 'b', 'n', 'q'];
 
 export type FileKey = 'a' | 'b' | 'c' | 'd' | 'e' | 'f' | 'g' | 'h'
 export type RankKey = '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8'
