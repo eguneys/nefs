@@ -1,4 +1,5 @@
 import * as nt from './types';
+import * as db from './db';
 
 export function isDirection(_: number): _ is nt.Direction {
   return !!mDirection(_);
@@ -49,6 +50,11 @@ export const fByKey = (_: FileKey): nt.File => {
 
 export const rByKey = (_: RankKey): nt.Rank => {
   return rankKeys.indexOf(_) + 1 as nt.Rank;
+}
+
+export const pByKey = (_: PosKey): nt.Pos => {
+  return db.poss.pget(fByKey(posKey2fKey(_)),
+                        rByKey(posKey2rKey(_)));
 }
 
 export const posKey2rKey = (_: PosKey): RankKey => {

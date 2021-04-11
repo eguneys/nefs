@@ -34,6 +34,8 @@ export function san2meta(san2: nt.San2): nt.Maybe<nt.SanMeta> {
   let res = san2.split(' ');
   let [roleS, fileS, rankS, captureS, toS, promotionS, checkS, mateS] = res;
 
+  promotionS = promotionS.replace('=', '');
+  
   let mate = sBool(mateS),
   check = sBool(checkS),
   capture = sBool(captureS),
