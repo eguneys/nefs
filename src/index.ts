@@ -8,3 +8,4 @@ export * as db from './db';
 export * as side from './side';
 export * as color from './color';
 export * as san from './san';
+export * as uci from './uci';

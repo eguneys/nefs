@@ -82,3 +82,12 @@ export type CastleMeta = {
 }
 
 export type SanMetaOrCastles = SanMeta | CastleMeta
+
+
+export type Uci = {
+  orig: Pos,
+  dest: Pos,
+  promotion?: Role
+}
+
+export type UciOrCastles = Uci | CastleMeta
