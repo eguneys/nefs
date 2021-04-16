@@ -14,3 +14,5 @@ import { nt, // types
 
 let { poss, pieces } = db;  // retrive positions and pieces from this API
 ```
+
+See [index.ts](src/index.ts) for exported names.

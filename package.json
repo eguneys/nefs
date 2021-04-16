@@ -7,6 +7,10 @@
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
   "license": "MIT",
+  "repository": "https://github.com/eguneys/nefs",
+  "keywords": [
+    "chess"
+  ],
   "scripts": {
     "watch": "tsc-watch --onSuccess 'ava'",
     "build": "rm -rf lib && tsc",

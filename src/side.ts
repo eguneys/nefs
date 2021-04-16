@@ -23,6 +23,8 @@ export const LongCastle: nt.CastleMeta = {
 
 export const all = [ShortCastle, LongCastle];
 
-export function isCastles(meta: nt.SanMetaOrCastles): meta is nt.CastleMeta {
+export function isCastles(meta: nt.UciOrCastles): meta is nt.CastleMeta;
+export function isCastles(meta: nt.SanMetaOrCastles): meta is nt.CastleMeta;
+export function isCastles(meta: any): meta is nt.CastleMeta {
   return ((meta as nt.CastleMeta).king !== undefined)
 }
